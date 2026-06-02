@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Vocabulary Card</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    radial-gradient(circle at top left,#dff4ff,#eef6ff 40%,#f8fafc);
+    padding:30px;
+}
+
+.card-container{
+    width:400px;
+    perspective:1500px;
+}
+
+.card{
+    width:100%;
+    height:650px;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:1s cubic-bezier(.4,.2,.2,1);
+    cursor:pointer;
+}
+
+.card.flipped{
+    transform:rotateY(180deg);
+}
+
+.side{
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden;
+    border-radius:32px;
+    overflow:hidden;
+
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+    0 15px 50px rgba(15,23,42,.08),
+    0 5px 20px rgba(15,23,42,.05);
+}
+
+.back{
+    transform:rotateY(180deg);
+}
+
+.header{
+    padding:24px;
+    background:linear-gradient(
+        135deg,
+        #7dd3fc,
+        #93c5fd,
+        #c4b5fd
+    );
+}
+
+.badges{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.badge{
+    background:rgba(255,255,255,.25);
+    color:white;
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    backdrop-filter:blur(10px);
+}
+
+.progress{
+    color:white;
+    font-weight:700;
+}
+
+.image-wrap{
+    padding:24px;
+}
+
+.image{
+    width:100%;
+    height:260px;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.content{
+    padding:0 28px;
+    text-align:center;
+}
+
+.word{
+    font-size:48px;
+    font-weight:800;
+    color:#0f172a;
+    letter-spacing:-1px;
+}
+
+.subtitle{
+    margin-top:12px;
+    color:#64748b;
+    font-size:15px;
+    line-height:1.6;
+}
+
+.flip-btn{
+    width:220px;
+    margin:35px auto 0;
+
+    padding:16px;
+
+    border:none;
+    border-radius:18px;
+
+    background:linear-gradient(
+    135deg,
+    #60a5fa,
+    #818cf8
+    );
+
+    color:white;
+    font-size:16px;
+    font-weight:700;
+
+    box-shadow:
+    0 10px 25px rgba(99,102,241,.25);
+
+    transition:.3s;
+}
+
+.flip-btn:hover{
+    transform:translateY(-3px);
+}
+
+.back-content{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:35px;
+    text-align:center;
+}
+
+.translation{
+    font-size:54px;
+    font-weight:800;
+    color:#4f46e5;
+    margin-bottom:25px;
+}
+
+.example{
+    font-size:18px;
+    line-height:1.8;
+    color:#475569;
+    max-width:300px;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    margin-top:35px;
+}
+
+.btn{
+    border:none;
+    padding:14px 22px;
+    border-radius:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.know{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.review{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.tip{
+    margin-top:18px;
+    padding:10px 18px;
+    border-radius:999px;
+    background:#eef2ff;
+    color:#4f46e5;
+    font-size:13px;
+    font-weight:600;
+}
+
+.fade{
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="card-container">
+
+<div class="card" id="card">
+
+<!-- FRONT -->
+
+<div class="side front">
+
+<div class="header">
+<div class="badges">
+
+<div class="badge">
+A1-A2
+</div>
+
+<div class="progress">
+1 / 30
+</div>
+
+</div>
+</div>
+
+<div class="image-wrap">
+
+<div class="image">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="">
+</div>
+
+</div>
+
+<div class="content fade">
+
+<div class="word">
+be
+</div>
+
+<div class="subtitle">
+Module 1 • Super Important Verbs
+</div>
+
+<button class="flip-btn">
+Tap To Reveal
+</button>
+
+</div>
+
+</div>
+
+<!-- BACK -->
+
+<div class="side back">
+
+<div class="back-content fade">
+
+<div class="translation">
+lenni
+</div>
+
+<div class="example">
+I want to be happy.
+</div>
+
+<div class="tip">
+Example Sentence
+</div>
+
+<div class="actions">
+
+<button class="btn know">
+✓ I Know
+</button>
+
+<button class="btn review">
+↻ Review
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("card")
+.addEventListener("click",function(){
+this.classList.toggle("flipped");
+});
+
+</script>
+
+</body>
+</html>
